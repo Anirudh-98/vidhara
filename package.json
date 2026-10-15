@@ -1,0 +1,24 @@
+{
+  "name": "vidhara-digital",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "latest",
+    "@vitejs/plugin-react": "latest",
+    "framer-motion": "latest",
+    "gsap": "latest",
+    "lucide-react": "^1.28.0",
+    "motion": "^12.42.2",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "^7.18.2",
+    "shaders": "^3.0.447",
+    "tailwindcss": "latest",
+    "vite": "latest"
+  }
+}
