@@ -352,10 +352,26 @@ export const values = [
   { title: 'No Templates', body: 'A gym franchise and a film release need fundamentally different playbooks. We build fresh strategy for every brand, every time.' }
 ]
 
+export const timelineIntro = 'What started as a small Instagram page grew into years of film promotions, brand campaigns, and industry relationships. Every project along the way shaped what Vidhara is today.'
+
 export const timeline = [
-  { year: '2021', title: 'Founded in Hyderabad', body: 'Started as a two-person team running hyperlocal ads for regional retail outlets.' },
-  { year: '2022', title: 'First franchise wins', body: 'Landed our first multi-location franchise clients, building the playbook for per-outlet geo-targeting.' },
-  { year: '2023', title: 'Entry into cinema marketing', body: 'Partnered with Bigfish Media on our first film release, blending performance marketing discipline with viral content strategy.' },
-  { year: '2024', title: 'Scaling dual expertise', body: 'Grew into a team handling both franchise growth and film promotions in parallel, becoming one of the few regional agencies fluent in both.' },
-  { year: '2025', title: '19+ brands, 8+ films', body: 'Crossed 19+ brands scaled and 8+ films promoted, with a 126% average footfall boost across active retail clients.' }
+  { year: '2019–2020', title: 'Where it started', body: 'We began on Instagram, promoting independent short films, cover songs, and YouTube music albums. Small projects, real audiences, and the foundation for everything that followed.' },
+  { year: '2021', title: 'Stepping into film promotions', body: 'Momentum built around the release of SR Kalyanamandapam in August 2021. Collaborating with Housefull was a turning point that opened doors across the film industry.' },
+  {
+    year: 'Film',
+    title: 'Growing through the industry',
+    body: 'As our network grew, production houses, film teams, and digital partners started bringing us in. Every project sharpened our craft and built relationships that last.',
+    partnersLabel: 'Production houses & industry partners',
+    partners: ['Housefull', 'Haashtag Media', 'Saregama', 'Walls and Trends', 'Team Star Circle', 'Cinecon', 'Connect Digital', 'Laabha Digital', 'GK Media']
+  },
+  {
+    year: 'Brand',
+    title: 'Beyond cinema',
+    body: 'Inspired by friends in food blogging, we moved into restaurant promotions and food collaborations, then into brand campaigns across industries, including recognised names like Starbucks.',
+    partnersLabel: 'Brands & businesses',
+    partners: ['Cult', 'Starbucks', 'Decathlon', 'Retro Barber Salon', 'Level Up Cafe, Hyderabad', 'GLO LED']
+  },
+  { year: '2025', title: 'The vision for Vidhara', body: 'By late 2025, after years of hands-on work, we began planning one agency to bring our experience, industry connections, and creative capabilities together.' },
+  { year: '2026', title: 'Vidhara comes to life', body: 'We put that vision into action, uniting film promotions, brand collaborations, and digital marketing under one roof.' },
+  { year: 'Next', title: 'The journey continues', body: 'Built on experience, strengthened by meaningful collaborations, and driven to create more. The next chapter is just getting started.' }
 ]

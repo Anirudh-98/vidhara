@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MapPin, Sparkles, BarChart2, Flame, Compass, LineChart, Languages, Ban } from 'lucide-react'
-import { stats, values, timeline, whyUs } from '../data/content'
+import { stats, values, timeline, timelineIntro, whyUs } from '../data/content'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -141,17 +141,28 @@ export function About() {
     <section className="px-[4.7vw] py-[130px] max-[760px]:py-[90px] max-[760px]:px-[24px] bg-white text-ink relative z-10">
       <div className="max-w-[900px] mx-auto">
         <span className="font-mono text-[11px] tracking-[.08em] uppercase text-[#674965] mb-[24px] block reveal">04 — HOW WE GOT HERE</span>
-        <h2 className={`${monoDisplayClass} mb-[70px] max-[760px]:mb-[50px]`}>Our journey so far.</h2>
+        <h2 className={`${monoDisplayClass} mb-[28px]`}>Our journey so far.</h2>
+        <p className="text-[16px] leading-[1.7] text-[#674965] max-w-[620px] mb-[70px] max-[760px]:mb-[50px] reveal">{timelineIntro}</p>
         <div className="flex flex-col">
           {timeline.map((t, i) => (
-            <div key={t.year} className="timeline-item flex gap-[32px] max-[600px]:gap-[18px] pb-[48px] last:pb-0">
+            <div key={t.title} className="timeline-item flex gap-[32px] max-[600px]:gap-[18px] pb-[48px] last:pb-0">
               <div className="flex flex-col items-center shrink-0">
-                <div className="w-[52px] h-[52px] max-[600px]:w-[42px] max-[600px]:h-[42px] rounded-full bg-[#280926] text-white flex items-center justify-center font-mono text-[12px] max-[600px]:text-[10px] shrink-0">{t.year}</div>
+                <div className="w-[52px] h-[52px] max-[600px]:w-[42px] max-[600px]:h-[42px] rounded-full bg-[#280926] text-white flex items-center justify-center font-mono text-[11px] max-[600px]:text-[9px] uppercase text-center leading-[1.15] shrink-0">{t.year}</div>
                 {i < timeline.length - 1 && <div className="w-[2px] flex-1 bg-[#cbc2cc]/40 mt-[8px]"></div>}
               </div>
               <div className="pt-[10px]">
                 <h3 className="text-[20px] font-semibold text-ink mb-[8px]">{t.title}</h3>
-                <p className="text-[14px] leading-[1.6] text-[#674965] max-w-[520px]">{t.body}</p>
+                <p className="text-[14px] leading-[1.6] text-[#674965] max-w-[560px]">{t.body}</p>
+                {t.partners && (
+                  <div className="mt-[20px]">
+                    <span className="font-mono text-[11px] tracking-[.08em] uppercase text-[#674965] block mb-[12px]">{t.partnersLabel}</span>
+                    <ul className="flex flex-wrap gap-[8px] list-none p-0 m-0">
+                      {t.partners.map(p => (
+                        <li key={p} className="text-[13px] text-[#350c32] bg-[#cbc2cc]/15 border border-[#cbc2cc]/40 rounded-full px-[14px] py-[6px]">{p}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
           ))}
