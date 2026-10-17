@@ -70,7 +70,7 @@ export function Services() {
       </section>
 
       {/* 2. SERVICE INDEX / NAVIGATION (HORIZONTAL SCROLLABLE) */}
-      <nav className="bg-[#ffffff] border-b border-[#cbc2cc]/40 py-4 px-5 sm:px-8 lg:px-12 sticky top-[72px] sm:top-[88px] z-30 shadow-xs">
+      <nav className="bg-[#f7f4f8]/90 backdrop-blur-md border-b border-[#cbc2cc]/40 py-4 px-5 sm:px-8 lg:px-12 sticky top-[72px] sm:top-[88px] z-30 shadow-xs">
         <div className="max-w-[1240px] mx-auto flex items-center gap-6 overflow-x-auto no-scrollbar py-1">
           <span className="font-mono text-[11px] text-[#998599] uppercase tracking-widest shrink-0 font-bold hidden sm:inline-block">
             INDEX:
@@ -81,7 +81,7 @@ export function Services() {
                 key={pillar.id}
                 type="button"
                 onClick={() => scrollToPillar(pillar.id)}
-                className="font-mono text-[12px] sm:text-[13px] font-semibold text-[#350c32] hover:text-[#1b0619] bg-[#f7f4f8] hover:bg-[#cbc2cc]/30 border border-[#cbc2cc]/40 px-4 py-2 rounded-full transition-all whitespace-nowrap cursor-pointer"
+                className="font-mono text-[12px] sm:text-[13px] font-semibold text-[#350c32] hover:text-[#1b0619] bg-white hover:bg-[#cbc2cc]/30 border border-[#cbc2cc]/40 px-4 py-2 rounded-full transition-all whitespace-nowrap cursor-pointer"
               >
                 <span>{pillar.number} {pillar.title.split('&')[0]}</span>
               </button>
@@ -96,11 +96,7 @@ export function Services() {
           // Alternating background colors for chapter rhythm
           const bgColors = [
             'bg-[#f7f4f8]',
-            'bg-[#ffffff]',
-            'bg-[#f2edf3]',
-            'bg-[#f7f4f8]',
-            'bg-[#ffffff]',
-            'bg-[#f7f4f8]'
+            'bg-[#f2edf3]'
           ]
           const currentBg = bgColors[index % bgColors.length]
 
@@ -118,7 +114,7 @@ export function Services() {
       </div>
 
       {/* 4. PRODUCTION HOUSES */}
-      <section className="bg-white py-20 sm:py-24 px-5 sm:px-8 lg:px-12 border-b border-[#cbc2cc]/40">
+      <section className="bg-[#f7f4f8] py-20 sm:py-24 px-5 sm:px-8 lg:px-12 border-b border-[#cbc2cc]/40">
         <div className="max-w-[1240px] mx-auto text-center">
           <span className="font-mono text-[12px] sm:text-[13px] tracking-[.15em] uppercase text-[#674965] block mb-3 font-bold">
             CINEMA PARTNERS
