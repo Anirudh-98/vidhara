@@ -38,7 +38,7 @@ export function FloatingActions() {
     >
       {/* Call Button */}
       <a
-        href="tel:+919999999999"
+        href="tel:+918096000878"
         aria-label="Call Us"
         className="group relative flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#350c32] text-white shadow-[0_4px_20px_rgba(53,12,50,0.35)] hover:bg-[#280926] hover:scale-110 active:scale-95 transition-all duration-200"
       >
@@ -50,7 +50,7 @@ export function FloatingActions() {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/919999999999"
+        href="https://wa.me/918096000878"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"

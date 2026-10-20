@@ -83,7 +83,7 @@ export function Contact() {
                   <div>
                     <h3 className="font-bold text-[#350c32] text-[16px]">Headquarters</h3>
                     <p className="text-[14px] text-[#674965] mt-1 leading-relaxed">
-                      Vidhara Digital Agency<br />Banjara Hills, Hyderabad, Telangana — 500034
+                      Vidhara<br />Hyderabad, India
                     </p>
                   </div>
                 </div>
@@ -94,8 +94,8 @@ export function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-[#350c32] text-[16px]">Email Us</h3>
-                    <a href="mailto:hello@vidhara.com" className="text-[14px] text-[#674965] hover:text-[#350c32] font-semibold mt-1 block">
-                      hello@vidhara.com
+                    <a href="mailto:vidharaofficial@gmail.com" className="text-[14px] text-[#674965] hover:text-[#350c32] font-semibold mt-1 block">
+                      vidharaofficial@gmail.com
                     </a>
                   </div>
                 </div>
@@ -106,8 +106,8 @@ export function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-[#350c32] text-[16px]">Direct Call</h3>
-                    <a href="tel:+919876543210" className="text-[14px] text-[#674965] hover:text-[#350c32] font-semibold mt-1 block">
-                      +91 98765 43210
+                    <a href="tel:+918096000878" className="text-[14px] text-[#674965] hover:text-[#350c32] font-semibold mt-1 block">
+                      +91 80960 00878
                     </a>
                   </div>
                 </div>

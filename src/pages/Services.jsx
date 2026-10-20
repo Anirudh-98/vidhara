@@ -93,18 +93,12 @@ export function Services() {
       {/* 3. SIX VERTICAL SERVICE PILLARS (DEEP DIVE CHAPTERS) */}
       <div className="services-container">
         {servicesPillarsData.map((pillar, index) => {
-          // Alternating background colors for chapter rhythm
-          const bgColors = [
-            'bg-[#f7f4f8]',
-            'bg-[#f2edf3]'
-          ]
-          const currentBg = bgColors[index % bgColors.length]
-
+          // Alternate white and dark chapters for rhythm, matching the homepage
           return (
             <ServicePillarChapter
               key={pillar.id}
               pillar={pillar}
-              bgClass={currentBg}
+              dark={index % 2 === 1}
               activeFilter={activeFilter}
               setActiveFilter={setActiveFilter}
               onOpenModal={handleOpenModal}
@@ -114,7 +108,7 @@ export function Services() {
       </div>
 
       {/* 4. PRODUCTION HOUSES */}
-      <section className="bg-[#f7f4f8] py-20 sm:py-24 px-5 sm:px-8 lg:px-12 border-b border-[#cbc2cc]/40">
+      <section className="bg-white py-20 sm:py-24 px-5 sm:px-8 lg:px-12 border-b border-[#cbc2cc]/40">
         <div className="max-w-[1240px] mx-auto text-center">
           <span className="font-mono text-[12px] sm:text-[13px] tracking-[.15em] uppercase text-[#674965] block mb-3 font-bold">
             CINEMA PARTNERS
@@ -159,7 +153,50 @@ export function Services() {
 }
 
 /* REUSABLE CHAPTER COMPONENT FOR EACH SERVICE PILLAR (4-STEP ARCHITECTURE) */
-function ServicePillarChapter({ pillar, bgClass, activeFilter, setActiveFilter, onOpenModal }) {
+const darkPatternStyle = {
+  backgroundImage: 'radial-gradient(rgba(169,105,155,0.22) 1px, transparent 1px)',
+  backgroundSize: '14px 14px'
+}
+
+const lightTheme = {
+  section: 'bg-white',
+  kicker: 'text-[#674965]',
+  heading: 'text-[#350c32]',
+  body: 'text-[#674965]',
+  muted: 'text-[#998599]',
+  rule: 'border-[#cbc2cc]/40',
+  divide: 'divide-[#cbc2cc]/40',
+  strongRule: 'border-[#350c32]',
+  rowHover: 'hover:bg-black/2',
+  nameHover: 'group-hover:text-[#1b0619]',
+  arrow: 'text-[#998599] group-hover:text-[#350c32]',
+  filterTrack: 'bg-[#cbc2cc]/25 border-[#cbc2cc]/40',
+  filterActive: 'bg-[#350c32] text-white',
+  filterIdle: 'text-[#674965] hover:text-[#350c32]',
+  ctaButton: 'bg-[#350c32] hover:bg-[#280926] text-white'
+}
+
+const darkTheme = {
+  section: 'bg-[#1b0619]',
+  kicker: 'text-[#cbc2cc]',
+  heading: 'text-white',
+  body: 'text-[#cbc2cc]',
+  muted: 'text-[#a58fa3]',
+  rule: 'border-white/10',
+  divide: 'divide-white/10',
+  strongRule: 'border-white/70',
+  rowHover: 'hover:bg-white/5',
+  nameHover: 'group-hover:text-[#f7f4f8]',
+  arrow: 'text-[#a58fa3] group-hover:text-white',
+  filterTrack: 'bg-white/5 border-white/15',
+  filterActive: 'bg-white text-[#350c32]',
+  filterIdle: 'text-[#cbc2cc] hover:text-white',
+  ctaButton: 'bg-white hover:bg-[#f7f4f8] text-[#350c32]'
+}
+
+function ServicePillarChapter({ pillar, dark, activeFilter, setActiveFilter, onOpenModal }) {
+  const t = dark ? darkTheme : lightTheme
+
   // Filter project cards based on active segmented control filter
   const filteredProjects = pillar.projects.filter(proj => {
     if (activeFilter === 'ALL') return true
@@ -171,7 +208,8 @@ function ServicePillarChapter({ pillar, bgClass, activeFilter, setActiveFilter, 
   return (
     <section
       id={pillar.id}
-      className={`scroll-mt-[130px] py-24 sm:py-32 lg:py-40 px-5 sm:px-8 lg:px-12 border-b border-[#cbc2cc]/40 ${bgClass}`}
+      className={`scroll-mt-[130px] py-24 sm:py-32 lg:py-40 px-5 sm:px-8 lg:px-12 border-b ${t.rule} ${t.section}`}
+      style={dark ? darkPatternStyle : undefined}
     >
       <div className="max-w-[1240px] mx-auto">
         
@@ -181,20 +219,20 @@ function ServicePillarChapter({ pillar, bgClass, activeFilter, setActiveFilter, 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-16 sm:mb-24 reveal">
           {/* LEFT: Pillar Number & Large Editorial Title */}
           <div className="lg:col-span-7">
-            <span className="font-mono text-[12px] sm:text-[13px] font-bold tracking-[.15em] uppercase text-[#674965] block mb-3">
+            <span className={`font-mono text-[12px] sm:text-[13px] font-bold tracking-[.15em] uppercase ${t.kicker} block mb-3`}>
               {pillar.category}
             </span>
-            <h2 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-bold text-[#350c32] tracking-tight leading-[1.02]">
+            <h2 className={`text-[clamp(2.5rem,5.5vw,4.5rem)] font-bold ${t.heading} tracking-tight leading-[1.02]`}>
               {pillar.title}
             </h2>
           </div>
 
           {/* RIGHT: Overview / Core Promise */}
           <div className="lg:col-span-5 lg:pt-8">
-            <p className="text-[18px] sm:text-[21px] leading-[1.5] text-[#350c32] font-semibold mb-4">
+            <p className={`text-[18px] sm:text-[21px] leading-[1.5] ${t.heading} font-semibold mb-4`}>
               "{pillar.tagline}"
             </p>
-            <p className="text-[16px] sm:text-[17px] leading-[1.65] text-[#674965] font-normal">
+            <p className={`text-[16px] sm:text-[17px] leading-[1.65] ${t.body} font-normal`}>
               {pillar.overview}
             </p>
           </div>
@@ -204,32 +242,32 @@ function ServicePillarChapter({ pillar, bgClass, activeFilter, setActiveFilter, 
         {/* STEP 02 — SUB-SERVICES INCLUDED (EDITORIAL LIST)   */}
         {/* ================================================== */}
         <div className="mb-20 sm:mb-28 reveal">
-          <div className="border-b-2 border-[#350c32] pb-3 mb-6 flex items-center justify-between">
-            <h3 className="font-mono text-[13px] uppercase tracking-[.15em] text-[#350c32] font-bold">
+          <div className={`border-b-2 ${t.strongRule} pb-3 mb-6 flex items-center justify-between`}>
+            <h3 className={`font-mono text-[13px] uppercase tracking-[.15em] ${t.heading} font-bold`}>
               SUB-SERVICES INCLUDED
             </h3>
-            <span className="font-mono text-[11px] text-[#998599] uppercase tracking-wider">
+            <span className={`font-mono text-[11px] ${t.muted} uppercase tracking-wider`}>
               {pillar.subServices.length} DELIVERABLES
             </span>
           </div>
 
           {/* Editorial Full-Width List with Thin Dividers */}
-          <div className="divide-y divide-[#cbc2cc]/40 border-b border-[#cbc2cc]/40">
+          <div className={`divide-y ${t.divide} border-b ${t.rule}`}>
             {pillar.subServices.map((sub) => (
               <div
                 key={sub.num}
-                className="py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-center group hover:bg-black/2 transition-colors px-2 rounded-lg reveal"
+                className={`py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-center group ${t.rowHover} transition-colors px-2 rounded-lg reveal`}
               >
-                <div className="md:col-span-1 font-mono text-[14px] font-bold text-[#674965]">
+                <div className={`md:col-span-1 font-mono text-[14px] font-bold ${t.kicker}`}>
                   {sub.num}
                 </div>
-                <div className="md:col-span-5 text-[18px] sm:text-[20px] font-bold text-[#350c32] group-hover:text-[#1b0619] transition-colors">
+                <div className={`md:col-span-5 text-[18px] sm:text-[20px] font-bold ${t.heading} ${t.nameHover} transition-colors`}>
                   {sub.name}
                 </div>
-                <div className="md:col-span-5 text-[14px] sm:text-[15px] text-[#674965] leading-relaxed">
+                <div className={`md:col-span-5 text-[14px] sm:text-[15px] ${t.body} leading-relaxed`}>
                   {sub.desc}
                 </div>
-                <div className="hidden md:flex md:col-span-1 justify-end text-[#998599] group-hover:text-[#350c32] transition-colors">
+                <div className={`hidden md:flex md:col-span-1 justify-end ${t.arrow} transition-colors`}>
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -243,18 +281,18 @@ function ServicePillarChapter({ pillar, bgClass, activeFilter, setActiveFilter, 
         <div className="mb-20 sm:mb-24 reveal">
           
           {/* Header & Filter Switcher */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 pb-4 border-b border-[#cbc2cc]/40">
+          <div className={`flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 pb-4 border-b ${t.rule}`}>
             <div>
-              <span className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[.15em] text-[#674965] font-bold block mb-1">
+              <span className={`font-mono text-[11px] sm:text-[12px] uppercase tracking-[.15em] ${t.kicker} font-bold block mb-1`}>
                 LIVE PROJECTS
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#350c32]">
+              <h3 className={`text-2xl sm:text-3xl font-bold tracking-tight ${t.heading}`}>
                 PROOF IN PRACTICE
               </h3>
             </div>
 
             {/* Optional Minimal Segmented Control Filter */}
-            <div className="flex items-center bg-[#cbc2cc]/25 p-1 rounded-full border border-[#cbc2cc]/40 self-start sm:self-auto">
+            <div className={`flex items-center p-1 rounded-full border ${t.filterTrack} self-start sm:self-auto`}>
               {['ALL', 'CORPORATE', 'CINEMA'].map((filterOption) => (
                 <button
                   key={filterOption}
@@ -262,8 +300,8 @@ function ServicePillarChapter({ pillar, bgClass, activeFilter, setActiveFilter, 
                   onClick={() => setActiveFilter(filterOption)}
                   className={`px-4 py-1.5 rounded-full font-mono text-[11px] font-bold tracking-wider uppercase transition-all cursor-pointer ${
                     activeFilter === filterOption
-                      ? 'bg-[#350c32] text-white shadow-xs'
-                      : 'text-[#674965] hover:text-[#350c32]'
+                      ? `${t.filterActive} shadow-xs`
+                      : t.filterIdle
                   }`}
                 >
                   {filterOption}
@@ -349,12 +387,12 @@ function ServicePillarChapter({ pillar, bgClass, activeFilter, setActiveFilter, 
         {/* ================================================== */}
         {/* STEP 04 — DEDICATED SERVICE CTA                    */}
         {/* ================================================== */}
-        <div className="pt-6 border-t border-[#cbc2cc]/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 reveal">
+        <div className={`pt-6 border-t ${t.rule} flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 reveal`}>
           <div>
-            <h4 className="text-xl sm:text-2xl font-bold text-[#350c32]">
+            <h4 className={`text-xl sm:text-2xl font-bold ${t.heading}`}>
               Ready to execute this capability for your brand?
             </h4>
-            <p className="text-[14px] sm:text-[15px] text-[#674965]">
+            <p className={`text-[14px] sm:text-[15px] ${t.body}`}>
               Get a customized playbook and execution roadmap for {pillar.title}.
             </p>
           </div>
@@ -362,7 +400,7 @@ function ServicePillarChapter({ pillar, bgClass, activeFilter, setActiveFilter, 
           <button
             type="button"
             onClick={() => onOpenModal(pillar.formService || pillar.title)}
-            className="px-8 py-4 bg-[#350c32] hover:bg-[#280926] active:scale-95 text-white font-mono text-[13px] font-bold rounded-full transition-all shadow-md inline-flex items-center gap-3 cursor-pointer shrink-0"
+            className={`px-8 py-4 ${t.ctaButton} active:scale-95 font-mono text-[13px] font-bold rounded-full transition-all shadow-md inline-flex items-center gap-3 cursor-pointer shrink-0`}
           >
             <span>{pillar.ctaLabel || `EXPLORE ${pillar.title.toUpperCase()} →`}</span>
           </button>
