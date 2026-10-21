@@ -64,7 +64,6 @@ export function Footer() {
 					
 					<div className="text-[#674965] text-[13px] mt-auto font-medium flex flex-col gap-1.5">
 						<p>© {new Date().getFullYear()} Vidhara. All Rights Reserved</p>
-						<p>Design and developed by <a href="https://rdfad.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white underline underline-offset-4 transition-colors">RDF</a></p>
 					</div>
 				</AnimatedContainer>
 

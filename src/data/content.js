@@ -43,7 +43,6 @@ export const productionHouses = [
   { name: "Saregama", src: "/images/production-houses/saregama.webp", fit: "cover", bg: "#ffffff" },
   { name: "Cinecorn", src: "/images/production-houses/cinecorn.webp", fit: "cover", bg: "#000000" },
   { name: "Connect Digital", src: "/images/production-houses/connect-digital.webp", fit: "cover", bg: "#000000" },
-  { name: "First Show", src: "/images/production-houses/first-show.webp", fit: "cover", bg: "#e8e8ea" },
   { name: "Haashtag Media", src: "/images/production-houses/haashtag-media.webp", fit: "cover", bg: "#000000" },
   { name: "#houseFULL", src: "/images/production-houses/housefull.webp", fit: "cover", bg: "#ffffff" },
   { name: "Laabha Digital Media", src: "/images/production-houses/laabha-digital-media.webp", fit: "cover", bg: "#ffffff" },
